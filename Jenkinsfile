@@ -4,6 +4,8 @@ pipeline {
         registry = "shahidrisi/hobsons-cms-new"
         registryCredential = 'dockerhub-credentials'
         dockerImage = ''
+        GIT_URL=https://github.com/shahabuddin11/Security.git
+        BRANCH_NAME=main
 
     }
     parameters {
@@ -32,7 +34,7 @@ pipeline {
         } 
        stage('Audit OpenAPI files') {
         steps {
-            audit repositoryName: "${env.GIT_URL}", branchName: "${env.BRANCH_NAME}", credentialsId: '42crunch-token-id', minScore: 75, platformUrl: 'https://platform.42crunch.com', logLevel: 'DEBUG', shareEveryone: 'READ_ONLY'
+            audit repositoryName: "${env.GIT_URL}", branchName: "${env.GIT_BRANCH.replaceFirst(/^.*\//, '')}", credentialsId: '42crunch-token-id', minScore: 75, platformUrl: 'https://platform.42crunch.com', logLevel: 'DEBUG', shareEveryone: 'READ_ONLY'
                 }
              }
    }
