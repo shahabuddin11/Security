@@ -4,8 +4,8 @@ pipeline {
         registry = "shahidrisi/hobsons-cms-new"
         registryCredential = 'dockerhub-credentials'
         dockerImage = ''
-        GIT_URL=https://github.com/shahabuddin11/Security.git
-        BRANCH_NAME=main
+        GIT_URL="https://github.com/shahabuddin11/Security.git"
+        BRANCH_NAME="main"
 
     }
     parameters {
