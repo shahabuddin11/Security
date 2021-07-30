@@ -32,7 +32,7 @@ pipeline {
         } 
        stage('Audit OpenAPI files') {
         steps {
-            audit repositoryName: "${params.git_repo_source}", branchName: "${params.git_repo_branch}", credentialsId: '42crunch-token-id', minScore: 75,  logLevel: 'DEBUG', shareEveryone: 'READ_ONLY'
+            audit repositoryName: "${params.git_repo_source}", branchName: "${params.git_repo_branch}", credentialsId: '42crunch-token-id', minScore: 75, platformUrl: 'https://platform.42crunch.com', logLevel: 'DEBUG', shareEveryone: 'READ_ONLY'
                 }
              }
    }
