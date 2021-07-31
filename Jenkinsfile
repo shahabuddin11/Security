@@ -34,7 +34,7 @@ pipeline {
         } 
        stage('Audit OpenAPI files') {
         steps {
-            audit repositoryName: "${env.GIT_URL}", branchName: "${env.GIT_BRANCH.replaceFirst(/^.*\//, '')}", credentialsId: '42crunch-token-id', minScore: 75, platformUrl: 'https://platform.42crunch.com/https://github.com/shahabuddin11/Security.git', logLevel: 'DEBUG', shareEveryone: 'READ_ONLY'
+            audit repositoryName: "${env.GIT_URL}", branchName: "${env.GIT_BRANCH.replaceFirst(/^.*\//, '')}", credentialsId: '42crunch-token-id', minScore: 75, platformUrl: 'https://platform.42crunch.com/collections', logLevel: 'DEBUG', shareEveryone: 'READ_ONLY'
                 }
              }
    }
