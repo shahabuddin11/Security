@@ -34,15 +34,8 @@ pipeline {
         } 
        stage('Audit OpenAPI files') {
         steps {
-<<<<<<< HEAD
-            audit repositoryName: "${env.GIT_URL}", branchName: "${env.GIT_BRANCH.replaceFirst(/^.*\//, '')}", credentialsId: '42crunch-token-id', minScore: 75, platformUrl: 'https://platform.42crunch.com', logLevel: 'DEBUG', shareEveryone: 'READ_ONLY'
-                
+            audit repositoryName: "${params.git_repo_source}", branchName: "${params.git_repo_branch}", credentialsId: '42crunch-token-id', minScore: 75, platformUrl: 'https://platform.42crunch.com/api/v1/collections', logLevel: 'DEBUG', shareEveryone: 'READ_ONLY'
             }
         }
-=======
-            audit repositoryName: "${params.git_repo_source}", branchName: "${params.git_repo_branch}", credentialsId: '42crunch-token-id', minScore: 75, platformUrl: 'https://platform.42crunch.com/api/v1/collections', logLevel: 'DEBUG', shareEveryone: 'READ_ONLY'
-                }
-             }
->>>>>>> 46b41a7153bfc1a804ef2acf37f8bc1370c1b8f5
    }
 }
