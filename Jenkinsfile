@@ -27,7 +27,7 @@ pipeline {
                 // env.code_author_email = sh(returnStdout: true, script: "git --no-pager show -s --format='%ae' ${commitId}").trim()
                 sh 'echo building image'
                 echo "Removing git references"
-                sh "rm -rf .git"
+                
                      }
                 }
             
