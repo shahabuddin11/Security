@@ -14,7 +14,6 @@ pipeline {
         string(name: 'git_repo_branch', defaultValue: 'main', description: 'The branch to be checked out')
         credentials(name: 'API_TOKEN', defaultValue: 'API Token', description: 'helm repo credentials', credentialType: "Secret text", required: true)
     }
-    }
     options {
         disableConcurrentBuilds()
         buildDiscarder(logRotator(daysToKeepStr: '7', artifactDaysToKeepStr: '7'))
