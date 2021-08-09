@@ -28,5 +28,13 @@
 audit:
   branches:
     main:
+      discovery:
+        search:
+          - '**/*.json'
+          - '**/*.yaml'
+          - '**/*.yml'
+          - '!foo/**'
+          - '!bar/**'
       mapping:
-        petstore.json: 18f29b03-7782-4e2b-8b8e-cc98a1f05c9d
+        petstore.yaml: 7ff5eb30-9593-4dfa-a1f9-65103661b06f
+        petstore.json: c10e52e6-0844-46c4-9536-f159c80b8af6
