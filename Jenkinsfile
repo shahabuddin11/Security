@@ -6,8 +6,6 @@ pipeline {
         dockerImage = ''
         GIT_URL="https://github.com/shahabuddin11/Security.git"
         BRANCH_NAME="main"
-        Crunch42_Token = credentials('42crunch-token-id-1')
-
     }
     parameters {
         string(name: 'git_repo_source', defaultValue: 'https://github.com/shahabuddin11/Security.git', description: 'Git repository from where we are going to checkout the code (dev  branch) and build.')
@@ -35,7 +33,7 @@ pipeline {
         } 
        stage('Audit OpenAPI files') {
         steps {
-            audit repositoryName: "${env.GIT_URL}", branchName: "${env.BRANCH_NAME}", credentialsId: '42crunch-token-id-1', minScore: 75, platformUrl: 'https://platform.42crunch.com', logLevel: 'DEBUG', shareEveryone: 'READ_ONLY'
+            audit repositoryName: "${env.GIT_URL}", branchName: "${env.BRANCH_NAME}", credentialsId: "${params.API_TOKE}", minScore: 75, platformUrl: 'https://platform.42crunch.com', logLevel: 'DEBUG', shareEveryone: 'READ_ONLY'
             }
         }
    }
