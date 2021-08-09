@@ -1,29 +1,18 @@
-# This example shows how to map API files in your repository to APIs you
-# already have in 42Crunch Platform.
+# This example shows how the OpenAPI files can be discovered
+# based on their filenames. The discovery phase will look for
+# all files with '.json', '.yaml', and '.yml' extensions in all directories,
+# except in the 'foo/' directory. All files in 'foo/' will
+# be ignored regardless of their extension.
 #
-# When the CI/CD plugin starts, it creates an API collection in 42Crunch Platform
-# using the name of the repository and branch directly from your source control.
+# The 'search' list must contain inclusion patterns followed by any exclusion
+# patterns. Each exclusion pattern must start with '!' (exclamation mark).
+# Format of the pattern is a glob expression, similar to format in '.gitignore'.
 #
-# The plugin uploads any APIs it finds during the discovery phase
-# into this API collection On subsequent runs, the collection is kept is sync
-# with the API files in your source repository.
+# The result of this example and its samples is as follows:
 #
-# If you have APIs in other API collections on 42Crunch Platform that you 
-# would like like to keep in sync with changes in the files in your source control,
-# you can use mappings for this.
+# 'Discovered: petstore.yaml, bar/petstore.json '
 #
-# To configure the mapping, you must know the API UUID of the existing API
-# in 42Crunch Platform (you can check it in the API summary on 
-# the platform). You list the filenames and the corresponding API UUIDs 
-# in the 'mapping' section.
-#
-# In this example, the sample 'petstore.json' file is mapped, and the plugin uploads 
-# it to the platform updating the contents of the API with
-# the UUID 'e7cd62ce-1ee9-4320-af33-8bd9519c6f48' with the contents of the file from
-# the source code repository.
-#
-# On the other hand, the sample file 'petstore.yaml' is not mapped,
-# so the plugin uploads to its default API collection.
+# Files in 'foo/' are not discovered.
 
 audit:
   branches:
@@ -34,7 +23,3 @@ audit:
           - '**/*.yaml'
           - '**/*.yml'
           - '!foo/**'
-          - '!bar/**'
-      mapping:
-        petstore.yaml: 7ff5eb30-9593-4dfa-a1f9-65103661b06f
-        petstore.json: c10e52e6-0844-46c4-9536-f159c80b8af6

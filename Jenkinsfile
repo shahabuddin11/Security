@@ -27,7 +27,7 @@ pipeline {
                 sh 'echo building image'
                 echo "Removing git references"
                 
-                     }
+                     } 
                 }
             
         } 
